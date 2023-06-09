@@ -9,4 +9,4 @@ class PuzzleSchema(BaseModel):
     
 class UserSchema(BaseModel):
     id: Optional[str]
-    
+    roles: Optional[list]
