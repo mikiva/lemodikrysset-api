@@ -3,10 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from auth import init_auth
 from settings import AuthSettings
 from supertokens_python import get_all_cors_headers
+from routes.play import play
 
 settings = AuthSettings()
 app = FastAPI()
-
+app.include_router(play, prefix="/api/v1")
 init_auth(app)
 
 
@@ -14,8 +15,6 @@ init_auth(app)
 @app.on_event("startup")
 async def app_startup():
     ...
-
-
 
 def do_stuff():
     return {"stuff": "done"}
