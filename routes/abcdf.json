@@ -1,6 +1,6 @@
 {
   "pname": "testar ny struktur",
-  "dimensions": [
+  "gridDimensions": [
     10,
     9
   ],

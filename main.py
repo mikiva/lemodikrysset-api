@@ -8,6 +8,7 @@ from routes.play import play
 settings = AuthSettings()
 app = FastAPI()
 app.include_router(play, prefix="/api/v1")
+
 init_auth(app)
 
 
