@@ -121,6 +121,23 @@ wrapt = ">=1.10,<2"
 dev = ["tox", "bump2version (<1)", "sphinx (<2)", "importlib-metadata (<3)", "importlib-resources (<4)", "configparser (<5)", "sphinxcontrib-websupport (<2)", "zipp (<2)", "PyTest (<5)", "PyTest-Cov (<2.6)", "pytest", "pytest-cov"]
 
 [[package]]
+name = "dnspython"
+version = "2.3.0"
+description = "DNS toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.extras]
+doq = ["aioquic (>=0.9.20)"]
+dnssec = ["cryptography (>=2.6,<40.0)"]
+curio = ["curio (>=1.2,<2.0)", "sniffio (>=1.1,<2.0)"]
+doh = ["h2 (>=4.1.0)", "httpx (>=0.21.1)", "requests (>=2.23.0,<3.0.0)", "requests-toolbelt (>=0.9.1,<0.11.0)"]
+idna = ["idna (>=2.1,<4.0)"]
+trio = ["trio (>=0.14,<0.23)"]
+wmi = ["wmi (>=1.5.1,<2.0.0)"]
+
+[[package]]
 name = "fastapi"
 version = "0.89.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -230,6 +247,26 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "motor"
+version = "3.2.0"
+description = "Non-blocking MongoDB driver for Tornado or asyncio"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+pymongo = ">=4.4,<5"
+
+[package.extras]
+aws = ["pymongo[aws] (>=4.4,<5)"]
+encryption = ["pymongo[encryption] (>=4.4,<5)"]
+gssapi = ["pymongo[gssapi] (>=4.4,<5)"]
+ocsp = ["pymongo[ocsp] (>=4.4,<5)"]
+snappy = ["pymongo[snappy] (>=4.4,<5)"]
+srv = ["pymongo[srv] (>=4.4,<5)"]
+zstd = ["pymongo[zstd] (>=4.4,<5)"]
+
+[[package]]
 name = "phonenumbers"
 version = "8.12.48"
 description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
@@ -281,6 +318,25 @@ crypto = ["cryptography (>=3.4.0)"]
 dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
 docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
 tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[[package]]
+name = "pymongo"
+version = "4.4.1"
+description = "Python driver for MongoDB <http://www.mongodb.org>"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+dnspython = ">=1.16.0,<3.0.0"
+
+[package.extras]
+aws = ["pymongo-auth-aws (<2.0.0)"]
+encryption = ["pymongocrypt (>=1.6.0,<2.0.0)", "pymongo-auth-aws (<2.0.0)"]
+gssapi = ["pykerberos"]
+ocsp = ["pyopenssl (>=17.2.0)", "requests (<3.0.0)", "service-identity (>=18.1.0)", "certifi"]
+snappy = ["python-snappy"]
+zstd = ["zstandard"]
 
 [[package]]
 name = "python-dotenv"
@@ -524,7 +580,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "cad3322a27ab20bc4772cabe237717fa4eafc8150ca23a4494a2a7b213d13184"
+content-hash = "dd92a77d5483db96b38980806b95de91cfbce3d06adce7bc715b7f358fbf1bb8"
 
 [metadata.files]
 aiosmtplib = []
@@ -537,6 +593,7 @@ click = []
 colorama = []
 cryptography = []
 deprecated = []
+dnspython = []
 fastapi = []
 filelock = []
 gunicorn = []
@@ -545,11 +602,13 @@ httpcore = []
 httptools = []
 httpx = []
 idna = []
+motor = []
 phonenumbers = []
 pycparser = []
 pycryptodome = []
 pydantic = []
 pyjwt = []
+pymongo = []
 python-dotenv = []
 pytz = []
 pyyaml = []

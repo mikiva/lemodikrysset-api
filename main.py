@@ -4,6 +4,7 @@ from auth import init_auth
 from settings import AuthSettings
 from supertokens_python import get_all_cors_headers
 from routes.play import play
+from database import init_database, close_database
 
 settings = AuthSettings()
 app = FastAPI()
@@ -15,11 +16,13 @@ init_auth(app)
 
 @app.on_event("startup")
 async def app_startup():
-    ...
+    await init_database()
+@app.on_event("shutdown")
+async def app_shutdown():
+    await close_database()
 
 def do_stuff():
     return {"stuff": "done"}
-
 
 
 app = CORSMiddleware(
