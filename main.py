@@ -25,7 +25,11 @@ def do_stuff():
     return {"stuff": "done"}
 
 
-app = CORSMiddleware(
+@app.get("/healthcheck")
+async def healthcheck():
+    return "OK"
+
+CORSMiddleware(
     app=app,
     allow_origins=[settings.website_domain],
     allow_credentials=True,

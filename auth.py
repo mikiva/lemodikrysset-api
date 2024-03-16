@@ -13,7 +13,6 @@ from supertokens_python import (
     InputAppInfo,
     SupertokensConfig,
 )
-import requests
 from fastapi import APIRouter
 
 auth_router = APIRouter(prefix="/auth")
